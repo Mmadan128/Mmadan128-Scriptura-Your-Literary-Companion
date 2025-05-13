@@ -8,7 +8,7 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
 import tempfile
-
+#.
 load_dotenv()
 
 if "page_number" not in st.session_state:
