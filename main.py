@@ -135,11 +135,16 @@ def app():
             response = st.session_state.qa_chain({"question": user_input, "chat_history": []})
             st.write(f"**Answer:** {response['answer']}")
 
-            st.write("📄 **Sources:**")
-            for source in response["source_documents"]:
-                source_file = source.metadata.get('source', 'Unknown')
-                human_readable_source = os.path.basename(source_file) if source_file != 'Unknown' else 'Unknown'
-                st.markdown(f"- {human_readable_source}")
+            # st.write("📄 **Sources:**")
+            # unique_sources = set()
+            # for source in response["source_documents"]:
+            #     source_file = source.metadata.get('source', 'Unknown')
+            #     human_readable_source = os.path.basename(source_file) if source_file != 'Unknown' else 'Unknown'
+            #     unique_sources.add(human_readable_source)
+
+            # # Display each unique source only once
+            # for src in unique_sources:
+            #     st.markdown(f"- {src}")
 
 
 if __name__ == "__main__":
