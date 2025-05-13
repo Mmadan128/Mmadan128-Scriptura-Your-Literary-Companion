@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 import fitz
-from langchain.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import DocArrayInMemorySearch
 from langchain.chains import ConversationalRetrievalChain
@@ -24,7 +24,7 @@ def load_db(file, chain_type, k):
     loader = PyPDFLoader(temp_file_path)
     documents = loader.load()
 
-    text_splitter = RecursiveCharacterTextSplitter()
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=256, chunk_overlap=20)
     docs = text_splitter.split_documents(documents)
 
     google_api_key = os.getenv("GOOGLE_API_KEY")
