@@ -7,3 +7,4 @@ langchain-core==0.3.58
 langchain-google-genai==2.1.4
 langchain-text-splitters==0.3.8
 python-dotenv==1.0.0
+docarray
