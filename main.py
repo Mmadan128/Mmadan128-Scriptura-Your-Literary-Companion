@@ -106,8 +106,8 @@ def app():
             st.write(f"Current Zoom: {st.session_state.zoom:.1f}x")
 
         with col1:
-            # Define text to highlight
-            highlight_texts = [("example text", (1, 0, 0))]  # Format: (text_to_highlight, (R, G, B))
+            
+            highlight_texts = [("example text", (1, 0, 0))]  
 
             img_data = render_pdf_page(uploaded_file, st.session_state.page_number, zoom=st.session_state.zoom, highlight_texts=highlight_texts)
 
@@ -135,16 +135,7 @@ def app():
             response = st.session_state.qa_chain({"question": user_input, "chat_history": []})
             st.write(f"**Answer:** {response['answer']}")
 
-            # st.write("📄 **Sources:**")
-            # unique_sources = set()
-            # for source in response["source_documents"]:
-            #     source_file = source.metadata.get('source', 'Unknown')
-            #     human_readable_source = os.path.basename(source_file) if source_file != 'Unknown' else 'Unknown'
-            #     unique_sources.add(human_readable_source)
 
-            # # Display each unique source only once
-            # for src in unique_sources:
-            #     st.markdown(f"- {src}")
 
 
 if __name__ == "__main__":
